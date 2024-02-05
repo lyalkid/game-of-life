@@ -6,8 +6,8 @@
 #define ROWS 25
 #define COLUMNS 80
 #define CELLULE 'o'
-#define DEATH ' '
-#define TIME 500000
+#define DEATH '.'
+#define TIME 150000
 void print_cel(int tmp);
 void render(int array2D[ROWS][COLUMNS]);
 void print_info(int generation, int speed);
@@ -44,12 +44,9 @@ int main() {
 
         speed_control(&speed, key, &time);
         usleep(time);
-        //system("clear");
+        system("clear");
         clear();
-        
-            next_gen(array2D, &generation, &cells);
-      
-        clear();
+        next_gen(array2D, &generation, &cells);
         if (key == 'x' || speed == 0 || cells == 2000) {
             flag = 0;
         }
@@ -105,9 +102,9 @@ void read_numbers(int size, int* numbers) {
 
 void print_cel(int tmp) {
     if (tmp == 1) {
-        printw("%c", CELLULE);
+        printw("%c ", CELLULE);
     } else {
-        printw("%c", DEATH);
+        printw("%c ", DEATH);
     }
 }
 
